@@ -1,10 +1,12 @@
 import React from 'react';
 import './style.css';
+import {ListItem} from "./listItem";
 
 /**
  * Приложение
  * @param store {Store} Состояние с действиями
  */
+
 function App({store}) {
   return (
     <div className='App'>
@@ -16,20 +18,21 @@ function App({store}) {
       </div>
       <div className='App__center'>
         <div className='List'>{store.getState().items.map(item =>
-          <div
-            key={item.code}
-            className={'List__item' + (item.selected ? ' List__item_selected' : '')}
-          >
-            <div className='Item' onClick={() => store.selectItem(item.code)}>
-              <div className='Item__number'>{item.code}</div>
-              <div className='Item__title'>{item.title}</div>
-              <div className='Item__actions'>
-                <button onClick={() => store.deleteItem(item.code)}>
-                  Удалить
-                </button>
-              </div>
-            </div>
-          </div>
+          <ListItem store={store} item={item} />
+          // <div
+          //   key={item.code}
+          //   className={'List__item' + (item.selected ? ' List__item_selected' : '')}
+          // >
+          //   <div className='Item' onClick={() => store.selectItem(item.code)}>
+          //     <div className='Item__number'>{item.code}</div>
+          //     <div className='Item__title'>{item.title}</div>
+          //     <div className='Item__actions'>
+          //       <button onClick={() => store.deleteItem(item.code)}>
+          //         Удалить
+          //       </button>
+          //     </div>
+          //   </div>
+          // </div>
         )}
         </div>
       </div>

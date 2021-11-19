@@ -52,9 +52,15 @@ body{
     display: flex;
     justify-content: flex-start;
 }
-.Item__title{
+.Item__title,
+.Item__click-count {
     width: 100%;
     padding: 20px 10px;
+}
+
+.Item__click-count {
+    display: flex;
+    justify-content: flex-start;
 }
 .Item__actions{
     padding: 20px  20px 20px 10px;
