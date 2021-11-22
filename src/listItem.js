@@ -12,7 +12,6 @@ export class ListItem extends React.Component {
   render() {
     return (
       <div
-        key={this.props.item.code}
         className={'List__item' + (this.state.selected ? ' List__item_selected' : '')}
         onClick={() => {this.setState({selected: !this.state.selected});}}
       >

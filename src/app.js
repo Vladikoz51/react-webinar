@@ -18,7 +18,7 @@ function App({store}) {
       </div>
       <div className='App__center'>
         <div className='List'>{store.getState().items.map(item =>
-          <ListItem store={store} item={item} />
+          <ListItem key={item.code} store={store} item={item} />
           // <div
           //   key={item.code}
           //   className={'List__item' + (item.selected ? ' List__item_selected' : '')}
