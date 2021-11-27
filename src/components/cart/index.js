@@ -37,5 +37,4 @@ Cart.defaultProps = {
   cart: []
 }
 
-// export default React.memo(Cart);
-export default Cart;
+export default React.memo(Cart);
