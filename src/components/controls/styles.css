@@ -1,6 +1,29 @@
 /* Контрол с общими действиями */
-.Controls{
+.Controls {
     display: flex;
     justify-content: flex-end;
     padding: 20px;
+    align-items: center;
+    font-family: Arial, sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 21px;
+}
+
+.Controls__open-cart-btn {
+    margin-left: 15px;
+}
+
+button {
+    font-family: Arial, sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 13px;
+    line-height: 15px;
+    min-width: 80px;
+}
+
+.Controls__cart-info {
+    margin: 0;
 }

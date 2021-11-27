@@ -83,6 +83,30 @@ class Store {
       })
     });
   }
+
+  // создадим функцию для добавления товара в корзину, если же данный товар там уже есть то увеличим количество на
+  // единицу
+  addItemToCart(item) {
+    const cart = this.state.cart;
+    const cartItem = cart.find(value => value.code === item.code);
+
+    if (cart.length === 0) {
+      item.amount = 1;
+      cart.push(item);
+    }
+    else if (cartItem) {
+      cartItem.amount++;
+    }
+    else {
+      item.amount = 1;
+      cart.push(item);
+    }
+
+    this.setState({
+      items: this.state.items,
+      cart: cart
+    })
+  }
 }
 
 export default Store;

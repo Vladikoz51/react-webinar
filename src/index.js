@@ -10,14 +10,15 @@ console.log('index.js');
 // Состояние приложения
 const store = new Store({
   items: [
-    {code: 1, title: 'Название элемента'},
-    {code: 2, title: 'Некий объект'},
-    {code: 3, title: 'Заголовок'},
-    {code: 4, title: 'Короткое название'},
-    {code: 5, title: 'Запись'},
-    {code: 6, title: 'Пример названия'},
-    {code: 7, title: 'Седьмой'}
-  ]
+    {code: 1, title: 'Торт "Лакомка"', price: 600},
+    {code: 2, title: 'Торт "Наполеон"', price: 800},
+    {code: 3, title: 'Кекс "Шахматный"', price: 300},
+    {code: 4, title: 'Торт "Медовый"', price: 700},
+    {code: 5, title: 'Кекс с изюмом', price: 350},
+    {code: 6, title: 'Торт "Прага"', price: 1000},
+    {code: 7, title: 'Торт "Ежик"', price: 400}
+  ],
+  cart: []
 });
 
 // Сообщаем реакту что и куда рендерить.

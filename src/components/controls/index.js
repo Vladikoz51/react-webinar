@@ -1,20 +1,26 @@
 import React from "react";
 import propTypes from 'prop-types';
+import pluralRu from 'plural-ru'
 import './styles.css';
 
-function Controls({onCreate}){
+function Controls({isCartHidden, setCartHidden, totalSum, totalAmount}){
   console.log('Controls');
-  return <div className='Controls'>
-    <button onClick={onCreate}> Добавить</button>
-  </div>
+  // запишем правильное склонение слова "товар" в переменную
+  const rightWord = pluralRu(totalAmount, 'товар', 'товара', 'товаров');
+  return (
+    <div className='Controls'>
+      <p className='Controls__cart-info'>
+        В корзине: <strong>{`${totalAmount} ${rightWord} / ${totalSum} \u20bd`}</strong>
+      </p>
+      <button className='Controls__open-cart-btn' onClick={() => setCartHidden(!isCartHidden)}>Перейти</button>
+    </div>
+  );
 }
 
 Controls.propTypes = {
-  onCreate: propTypes.func.isRequired
-}
-
-Controls.defaultProps = {
-  onCreate: () => {}
+  isCartHidden: propTypes.bool.isRequired,
+  setCartHidden: propTypes.func.isRequired
 }
 
 export default React.memo(Controls);
+// export default Controls;

@@ -16,3 +16,4 @@ function Layout({head, content, children}){
 }
 
 export default React.memo(Layout);
+// export default Layout;
