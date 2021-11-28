@@ -10,7 +10,7 @@ function Controls({isCartHidden, setCartHidden, totalSum, totalAmount}){
   return (
     <div className='Controls'>
       <p className='Controls__cart-info'>
-        В корзине: <strong>{`${totalAmount} ${rightWord} / ${totalSum} \u20bd`}</strong>
+        В корзине: <strong>{totalAmount ? `${totalAmount} ${rightWord} / ${totalSum} \u20bd` : 'пусто'}</strong>
       </p>
       <button className='Controls__open-cart-btn' onClick={() => setCartHidden(!isCartHidden)}>Перейти</button>
     </div>
