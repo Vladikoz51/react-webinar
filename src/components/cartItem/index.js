@@ -3,7 +3,7 @@ import propTypes from 'prop-types';
 import './styles.css';
 
 function CartItem({item, index}) {
-  console.log('CartItem');
+  console.log('CartItem ' + item.code);
 
   return (
     <li className='Cart__item'>
@@ -30,4 +30,13 @@ CartItem.propTypes = {
   ).isRequired
 }
 
-export default React.memo(CartItem);
+// function areEqual(prevProps, nextProps) {
+//   return prevProps.item.code === nextProps.item.code &&
+//     prevProps.item.title === nextProps.item.title &&
+//     prevProps.item.price === nextProps.item.price &&
+//     prevProps.item.amount === nextProps.item.amount &&
+//     prevProps.index === nextProps.index;
+// }
+
+// export default React.memo(CartItem, areEqual);
+export default CartItem;
