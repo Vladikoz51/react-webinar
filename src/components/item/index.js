@@ -8,9 +8,8 @@ function Item({item, onAdd}) {
   return (
     <div className='Item'>
       <div className='Item__number'>{item.code}</div>
-      <div className='Item__title'>
-        {item.title}
-      </div>
+      <div className='Item__title'>{item.title}</div>
+      <div className='Item__price'>{item.price + ' \u20bd'}</div>
       <div className='Item__actions'>
         <button onClick={() => onAdd(item)}>
           Добавить
