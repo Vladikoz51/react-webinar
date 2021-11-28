@@ -12,7 +12,7 @@ function CartItem({item, index}) {
         <div className='Cart__item-name'>{item.title}</div>
       </div>
       <div className='Cart__right-container'>
-        <div className='Cart__item-price'>{item.price}</div>
+        <div className='Cart__item-price'>{item.price + ' \u20bd'}</div>
         <div className='Cart__item-amount'>{item.amount + ' шт.'}</div>
       </div>
     </li>
