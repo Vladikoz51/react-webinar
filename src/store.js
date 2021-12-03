@@ -86,18 +86,18 @@ class Store {
 
   // создадим функцию для добавления товара в корзину, если же данный товар там уже есть то увеличим количество на
   // единицу
-  addItemToCart(item) {
-    const cart = this.getState().cart;
-    const cartItem = cart.find(value => value.code === item.code);
-    const cartItemIndex = cart.findIndex(value => value.code === item.code);
+  addItemToCart(code) {
+    const items = [...this.getState().items];
+    const item = items.find(value => value.code === code);
+    const cart = [...this.getState().cart];
+    const cartItemIndex = cart.findIndex(value => value.code === code);
 
     if (cart.length === 0) {
       item.amount = 1;
       cart.push(item);
     }
-    else if (cartItem) {
-      cartItem.amount++;
-      cart[cartItemIndex] = {...cartItem};
+    else if (cartItemIndex !== -1) {
+      cart[cartItemIndex] = {...cart[cartItemIndex], amount: cart[cartItemIndex].amount + 1};
     }
     else {
       item.amount = 1;
@@ -105,8 +105,8 @@ class Store {
     }
 
     this.setState({
-      items: this.getState().items,
-      cart: [...cart]
+      items: items,
+      cart: cart
     })
   }
 }

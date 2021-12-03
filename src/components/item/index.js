@@ -11,7 +11,7 @@ function Item({item, onAdd}) {
       <div className='Item__title'>{item.title}</div>
       <div className='Item__price'>{item.price + ' \u20bd'}</div>
       <div className='Item__actions'>
-        <button onClick={() => onAdd(item)}>
+        <button onClick={() => onAdd(item.code)}>
           Добавить
         </button>
       </div>
