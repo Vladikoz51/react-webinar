@@ -28,32 +28,32 @@ function App({store}) {
   // }
 
   // Переменные для подсчета общей стоимости и общего количества товаров.
-  let totalSum = 0;
-  let totalAmount = 0;
-
-  for (const cartElement of store.getState().cart) {
-    totalAmount += cartElement.amount;
-    totalSum += cartElement.amount * cartElement.price;
-  }
+  // let totalSum = 0;
+  // let totalAmount = 0;
+  //
+  // for (const cartElement of store.getState().cart) {
+  //   totalAmount += cartElement.amount;
+  //   totalSum += cartElement.amount * cartElement.price;
+  // }
 
   return (
     <Layout head={<h1>Кондитерская "Сладкоежка"</h1>}>
       <Controls
         isCartHidden={isCartHidden}
         setCartHidden={setIsCartHidden}
-        totalSum={totalSum}
-        totalAmount={totalAmount}
+        totalSum={store.getState().cart.total.sum}
+        totalAmount={store.getState().cart.total.amount}
       />
       <List
         items={store.getState().items}
         onAdd={callbacks.onAddToCart}
       />
       <Cart
-        cart={store.getState().cart}
+        cart={store.getState().cart.items}
         isCartHidden={isCartHidden}
         setCartHidden={setIsCartHidden}
-        totalSum={totalSum}
-        totalAmount={totalAmount}
+        totalSum={store.getState().cart.total.sum}
+        totalAmount={store.getState().cart.total.amount}
       />
     </Layout>
   );

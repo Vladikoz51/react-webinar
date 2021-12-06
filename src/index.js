@@ -18,7 +18,10 @@ const store = new Store({
     {code: 6, title: 'Торт "Прага"', price: 1000},
     {code: 7, title: 'Торт "Ежик"', price: 400}
   ],
-  cart: []
+  cart: {
+    items: [],
+    total: {sum: 0, amount: 0}
+  }
 });
 
 // Сообщаем реакту что и куда рендерить.
