@@ -1,0 +1,42 @@
+.Cart__item {
+    background: #FFFFFF;
+    font-family: Arial, sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 18px;
+    display: grid;
+    grid-template-columns: auto auto;
+    padding: 20px;
+}
+
+.Cart__left-container,
+.Cart__right-container {
+    display: grid;
+    grid-template-columns: auto auto;
+}
+
+.Cart__left-container {
+    justify-self: left;
+}
+
+.Cart__right-container {
+    justify-self: right;
+}
+
+.Cart__item-index {
+    margin-right: 20px;
+}
+
+.Cart__item-price {
+    margin-right: 55px;
+}
+
+.Cart__item-price,
+.Cart__item-amount {
+    font-size: 18px;
+    line-height: 21px;
+}
+
+
+
