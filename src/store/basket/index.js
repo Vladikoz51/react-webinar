@@ -17,8 +17,8 @@ class BasketStore extends StoreModule {
    * Добавление товара в корзину по коду
    * @param id {*}
    */
-  add(id){
-    // Ищем товар в корзие, чтобы увеличить его количество.
+  add(id) {
+    // Ищем товар в корзине, чтобы увеличить его количество.
     let exists = false;
     const items = this.getState().items.map(item => {
       // Искомый товар

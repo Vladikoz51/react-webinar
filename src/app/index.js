@@ -7,7 +7,6 @@ import useSelector from "../utils/use-selector";
  * Приложение
  */
 function App() {
-
   const select = useSelector(state => ({
     name: state.modals.name
   }));
