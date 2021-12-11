@@ -9,7 +9,6 @@ import useStore from "../../utils/use-store";
 import useSelector from "../../utils/use-selector";
 
 function Main() {
-  console.log("Main");
   const select = useSelector(state => ({
     items: state.catalog.items,
     amount: state.basket.amount,
@@ -43,6 +42,7 @@ function Main() {
     paginationItem: useCallback((index) => {
       return <PaginationItem
         index={index}
+        key={index}
         loadPageItems={callbacks.loadPageItems}
         limit={select.limit}/>
     }, [callbacks.loadPageItems])

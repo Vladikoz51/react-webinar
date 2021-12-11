@@ -4,7 +4,7 @@ import './styles.css';
 
 function PaginationItem({index, loadPageItems, limit}) {
   return (
-    <li className='Pagination__item' key={index}>
+    <li className='Pagination__item'>
       <button
         className='Pagination__button'
         onClick={
@@ -17,7 +17,7 @@ function PaginationItem({index, loadPageItems, limit}) {
 }
 
 PaginationItem.propTypes = {
-  pageAmount: propTypes.number.isRequired,
+  index: propTypes.number.isRequired,
   loadPageItems: propTypes.func.isRequired,
   limit: propTypes.number,
 }
