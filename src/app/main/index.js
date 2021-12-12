@@ -10,6 +10,8 @@ import useSelector from "../../utils/use-selector";
 
 function Main() {
   const select = useSelector(state => ({
+    name: state.modals.name,
+
     items: state.catalog.items,
     amount: state.basket.amount,
     sum: state.basket.sum,
@@ -60,7 +62,7 @@ function Main() {
       <List items={select.items} renderItem={renders.item}/>
       <Pagination pageAmount={pageAmount} renderPaginationItem={renders.paginationItem}/>
     </Layout>
-  );
+);
 }
 
 export default React.memo(Main);

@@ -6,6 +6,11 @@
     font-size: 18px;
 }
 
+.BasketSimple__main-link {
+  margin-right: auto;
+  color: rgba(0, 135, 233, 1);
+}
+
 .BasketSimple__label{
 
 }
