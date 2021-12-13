@@ -2,7 +2,8 @@
   margin-right: 10px;
 }
 
-.Pagination__button {
+.Pagination__button,
+.Pagination__button_current {
   background: none;
   border: none;
   font-family: Arial, sans-serif;
@@ -17,8 +18,10 @@
   background-color: gray;
 }
 
-.Pagination__button:active {
+.Pagination__button:active,
+.Pagination__button_current {
   cursor: pointer;
   background-color: black;
   color: white;
 }
+

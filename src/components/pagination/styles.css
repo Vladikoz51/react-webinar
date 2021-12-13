@@ -2,7 +2,8 @@
   padding: 20px 25px;
 }
 
-.Pagination__button {
+.Pagination__button,
+.Pagination__button_current {
   padding: 3px;
 }
 

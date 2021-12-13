@@ -2,13 +2,17 @@ import React from 'react';
 import propTypes from 'prop-types';
 import './styles.css';
 
-function PaginationItem({index, loadPageItems, limit}) {
+function PaginationItem({index, loadPageItems, limit, currentIndex, setCurrentIndex}) {
+  const itemClass = index === currentIndex ? 'Pagination__button_current' : 'Pagination__button';
   return (
     <li className='Pagination__item'>
       <button
-        className='Pagination__button'
+        className={itemClass}
         onClick={
-          () => loadPageItems(limit, (index - 1) * limit)
+          () => {
+            loadPageItems(limit, (index - 1) * limit);
+            setCurrentIndex(index);
+          }
         }>
         {index}
       </button>

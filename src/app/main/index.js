@@ -41,9 +41,11 @@ function Main() {
         item={item}
         onAdd={callbacks.addToBasket}/>
     }, [callbacks.addToBasket]),
-    paginationItem: useCallback((index) => {
+    paginationItem: useCallback((index, currentIndex, setCurrentIndex) => {
       return <PaginationItem
         index={index}
+        currentIndex={currentIndex}
+        setCurrentIndex={setCurrentIndex}
         key={index}
         loadPageItems={callbacks.loadPageItems}
         limit={select.limit}/>

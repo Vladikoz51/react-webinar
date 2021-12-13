@@ -1,12 +1,13 @@
-import React from 'react';
+import React, {useState} from 'react';
 import propTypes from 'prop-types';
 import './styles.css';
 
 function Pagination({pageAmount, renderPaginationItem}) {
+  const [currentIndex, setCurrentIndex] = useState(1);
   // создаем массив компонентов PaginationItem
   let items = [];
   for (let i = 1; i <= pageAmount; i++) {
-    items.push(renderPaginationItem(i));
+    items.push(renderPaginationItem(i, currentIndex, setCurrentIndex));
   }
 
   return (
