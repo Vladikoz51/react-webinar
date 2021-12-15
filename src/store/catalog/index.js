@@ -19,10 +19,10 @@ class CatalogStore extends StoreModule {
   /**
    * Загрузка списка товаров
    */
-  // метод изменен таким образом, что принимая параметры limit и skip формировал бы соответствующие
+  // метод изменен таким образом, что принимая параметры limit и pageIndex формировал бы соответствующие
   // http запросы
-  async load(limit, skip = 0, pageIndex = 1) {
-    let request = `/api/v1/articles?limit=${limit}&skip=${skip}&fields=items(*),count`;
+  async load(limit, pageIndex = 1) {
+    let request = `/api/v1/articles?limit=${limit}&skip=${(pageIndex - 1) * limit}&fields=items(*),count`;
     const response = await fetch(request);
     const json = await response.json();
     this.setState({

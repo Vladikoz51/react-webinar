@@ -16,7 +16,7 @@ function Pagination({count, limit, currentPage, loadPageItems}) {
         <button
           className={itemClass}
           onClick={
-            () => {loadPageItems(limit, (i - 1) * limit, i);}
+            () => {loadPageItems(limit, i);}
           }
         >
           {i}

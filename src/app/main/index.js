@@ -30,8 +30,8 @@ function Main() {
   const callbacks = {
     addToBasket: useCallback((_id) => store.basket.add(_id), [store]),
     openModal: useCallback(() => store.modals.open('basket'), [store]),
-    loadPageItems: useCallback((limit, skip, currentPage) => {
-      store.catalog.load(limit, skip, currentPage);
+    loadPageItems: useCallback((limit, currentPage) => {
+      store.catalog.load(limit, currentPage);
     }, [store])
   }
 
@@ -42,8 +42,6 @@ function Main() {
         onAdd={callbacks.addToBasket}/>
     }, [callbacks.addToBasket])
   }
-
-
 
   return (
     <>
