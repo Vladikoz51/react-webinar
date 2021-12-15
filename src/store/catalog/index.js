@@ -5,26 +5,28 @@ class CatalogStore extends StoreModule {
   /**
    * Начальное состояние
    */
-  // в стейт каталога добавлены свойства limit (максимальное количество элементов на странице) и
-  // count (общее количество элементов каталога)
+  // в стейт каталога добавлены свойства limit (максимальное количество элементов на странице),
+  // count (общее количество элементов каталога), currentPage (текущая страница каталога)
   initState() {
     return {
       items: [],
       count: 0,
       limit: 10,
+      currentPage: null,
     };
   }
 
   /**
    * Загрузка списка товаров
    */
-  // метод изменен таким образом чтобы принимая, параметры limit и skip формировал соответствующие
+  // метод изменен таким образом, что принимая параметры limit и skip формировал бы соответствующие
   // http запросы
-  async load(limit, skip = 0) {
+  async load(limit, skip = 0, pageIndex = 1) {
     let request = `/api/v1/articles?limit=${limit}&skip=${skip}&fields=items(*),count`;
     const response = await fetch(request);
     const json = await response.json();
     this.setState({
+      currentPage: pageIndex,
       items: json.result.items,
       count: json.result.count,
       limit: limit

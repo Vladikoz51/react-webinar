@@ -2,15 +2,38 @@
   padding: 20px 25px;
 }
 
-.Pagination__button,
-.Pagination__button_current {
-  padding: 3px;
-}
-
 .Pagination__list {
   list-style-type: none;
   display: flex;
   margin: 0;
   padding: 0;
   justify-content: right;
+}
+
+.Pagination__item {
+  margin-right: 10px;
+}
+
+.Pagination__button,
+.Pagination__button_current {
+  padding: 3px;
+  background: none;
+  border: none;
+  font-family: Arial, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 18px;
+}
+
+.Pagination__button:hover {
+  cursor: pointer;
+  background-color: gray;
+}
+
+.Pagination__button:active,
+.Pagination__button_current {
+  cursor: pointer;
+  background-color: black;
+  color: white;
 }

@@ -4,7 +4,6 @@ import Layout from "../../components/layout";
 import BasketSimple from "../../components/basket-simple";
 import List from "../../components/list";
 import Pagination from "../../components/pagination";
-import PaginationItem from "../../components/pagination-item";
 import useStore from "../../utils/use-store";
 import useSelector from "../../utils/use-selector";
 
@@ -17,6 +16,7 @@ function Main() {
     sum: state.basket.sum,
     count: state.catalog.count,
     limit: state.catalog.limit,
+    currentPage: state.catalog.currentPage
   }));
 
   const store = useStore();
@@ -29,40 +29,31 @@ function Main() {
   const callbacks = {
     addToBasket: useCallback((_id) => store.basket.add(_id), [store]),
     openModal: useCallback(() => store.modals.open('basket'), [store]),
-    loadPageItems: useCallback((limit, skip) => {
-      store.catalog.load(limit, skip);
+    loadPageItems: useCallback((limit, skip, currentPage) => {
+      store.catalog.load(limit, skip, currentPage);
     }, [store])
   }
 
-  // добавлен колбэк для рендера кнопок пагинации
   const renders = {
     item: useCallback(item => {
       return <Item
         item={item}
         onAdd={callbacks.addToBasket}/>
-    }, [callbacks.addToBasket]),
-    paginationItem: useCallback((index, currentIndex, setCurrentIndex) => {
-      return <PaginationItem
-        index={index}
-        currentIndex={currentIndex}
-        setCurrentIndex={setCurrentIndex}
-        key={index}
-        loadPageItems={callbacks.loadPageItems}
-        limit={select.limit}/>
-    }, [callbacks.loadPageItems])
+    }, [callbacks.addToBasket])
   }
 
-  // считаем нужное количество страниц при заданном количестве элементов на страницу и общем
-  // количестве элементов.
-  const pageAmount = Math.floor(select.count / select.limit) < (select.count / select.limit) ?
-    Math.floor(select.count / select.limit) + 1 :
-    select.count / select.limit;
+
 
   return (
     <Layout head={<h1>Магазин</h1>}>
       <BasketSimple onOpen={callbacks.openModal} amount={select.amount} sum={select.sum}/>
       <List items={select.items} renderItem={renders.item}/>
-      <Pagination pageAmount={pageAmount} renderPaginationItem={renders.paginationItem}/>
+      <Pagination
+        count={select.count}
+        limit={select.limit}
+        currentPage={select.currentPage}
+        loadPageItems={callbacks.loadPageItems}
+      />
     </Layout>
 );
 }
