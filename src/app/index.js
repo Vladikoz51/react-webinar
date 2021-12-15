@@ -1,21 +1,17 @@
 import React from 'react';
 import Main from "./main";
-import Basket from "./basket";
-import useSelector from "../utils/use-selector";
+import {Route, Routes} from "react-router-dom";
+import Item from "./item";
 
 /**
  * Приложение
  */
 function App() {
-  const select = useSelector(state => ({
-    name: state.modals.name
-  }));
-
   return (
-    <>
-      <Main/>
-      {select.name === 'basket' && <Basket/>}
-    </>
+    <Routes>
+      <Route path='/' element={<Main/>} />
+      <Route path="/items/:itemId" element={<Item/>} />
+    </Routes>
   );
 }
 

@@ -6,6 +6,7 @@ import List from "../../components/list";
 import Pagination from "../../components/pagination";
 import useStore from "../../utils/use-store";
 import useSelector from "../../utils/use-selector";
+import Basket from "../basket";
 
 function Main() {
   const select = useSelector(state => ({
@@ -45,16 +46,19 @@ function Main() {
 
 
   return (
-    <Layout head={<h1>Магазин</h1>}>
-      <BasketSimple onOpen={callbacks.openModal} amount={select.amount} sum={select.sum}/>
-      <List items={select.items} renderItem={renders.item}/>
-      <Pagination
-        count={select.count}
-        limit={select.limit}
-        currentPage={select.currentPage}
-        loadPageItems={callbacks.loadPageItems}
-      />
-    </Layout>
+    <>
+      <Layout head={<h1>Магазин</h1>}>
+        <BasketSimple onOpen={callbacks.openModal} amount={select.amount} sum={select.sum}/>
+        <List items={select.items} renderItem={renders.item}/>
+        <Pagination
+          count={select.count}
+          limit={select.limit}
+          currentPage={select.currentPage}
+          loadPageItems={callbacks.loadPageItems}
+        />
+      </Layout>
+      {select.name === 'basket' && <Basket/>}
+    </>
 );
 }
 
