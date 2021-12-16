@@ -11,7 +11,7 @@ class CatalogStore extends StoreModule {
     return {
       items: [],
       count: 0,
-      limit: 10,
+      limit: null,
       currentPage: null,
     };
   }
@@ -21,7 +21,7 @@ class CatalogStore extends StoreModule {
    */
   // метод изменен таким образом, что принимая параметры limit и pageIndex формировал бы соответствующие
   // http запросы
-  async load(limit, pageIndex = 1) {
+  async load(pageIndex = 1, limit = 10) {
     let request = `/api/v1/articles?limit=${limit}&skip=${(pageIndex - 1) * limit}&fields=items(*),count`;
     const response = await fetch(request);
     const json = await response.json();

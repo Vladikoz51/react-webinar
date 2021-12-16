@@ -4,7 +4,6 @@ import BasketSimple from "../../components/basket-simple";
 import useStore from "../../utils/use-store";
 import useSelector from "../../utils/use-selector";
 import ItemInfo from "../../components/item-info";
-import Basket from "../basket";
 import {useParams} from "react-router";
 
 function Item() {
@@ -37,19 +36,15 @@ function Item() {
   }
 
   return (
-    <>
-      <Layout head={<h1>{select.title}</h1>}>
-        <BasketSimple onOpen={callbacks.openModal} amount={select.amount} sum={select.sum}/>
-        <ItemInfo description={select.description}
-                  madeIn={select.madeIn}
-                  category={select.category}
-                  edition={select.edition}
-                  price={select.price}
-                  onAdd={callbacks.addToBasket}/>
-      </Layout>
-      {select.name === 'basket' && <Basket/>}
-    </>
-
+    <Layout head={<h1>{select.title}</h1>}>
+      <BasketSimple onOpen={callbacks.openModal} amount={select.amount} sum={select.sum}/>
+      <ItemInfo description={select.description}
+                madeIn={select.madeIn}
+                category={select.category}
+                edition={select.edition}
+                price={select.price}
+                onAdd={callbacks.addToBasket}/>
+    </Layout>
   );
 }
 
