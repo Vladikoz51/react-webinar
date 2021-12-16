@@ -38,7 +38,7 @@ function Pagination({count, limit, currentPage, loadPageItems}) {
 
 Pagination.propTypes = {
   count: propTypes.number.isRequired,
-  limit: propTypes.number.isRequired,
+  limit: propTypes.number,
   currentPage: propTypes.number,
   loadPageItems: propTypes.func.isRequired
 }
