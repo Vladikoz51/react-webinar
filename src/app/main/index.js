@@ -13,7 +13,10 @@ function Main() {
   // Загрузка тестовых данных при первом рендере
   useInit(async () => {
     await store.catalog.initParams();
+    // Загрузка категорий товаров
+    await store.categories.setCategories();
   }, [], {backForward: true});
+
 
   return (
     <Layout head={<h1>Магазин</h1>}>

@@ -5,7 +5,7 @@ class StoreModule {
 
   /**
    * @param store {Store} Ссылка на хранилище
-   * @param name {String} Навзание модуля (ключ данных в state)
+   * @param name {String} Название модуля (ключ данных в state)
    */
   constructor(store, name) {
     this.store = store;

@@ -15,7 +15,7 @@ class ModalsStore extends StoreModule {
    * Открытие модального окна по названию
    * @param name {String} Название модалки
    */
-  open(name){
+  open(name) {
     this.setState({
       name
     });
@@ -24,7 +24,7 @@ class ModalsStore extends StoreModule {
   /**
    * Закрытие модального окна
    */
-  close(){
+  close() {
     this.setState({
       name: false
     });

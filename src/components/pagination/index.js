@@ -5,7 +5,7 @@ import './styles.css';
 
 function Pagination(props) {
 
-  // Количество станиц
+  // Количество страниц
   const length = Math.ceil(props.count / Math.max(1, props.limit));
   // Начальная и конечная страница последовательности, чтобы все не рендерить
   const start = Math.max(props.page - 2, 1);
@@ -14,16 +14,16 @@ function Pagination(props) {
   let items = [];
 
   // Первая страница всегда нужна
-  if (start > 1){
+  if (start > 1) {
     items.push(1);
     if (start > 2) items.push(null); // пропуск
   }
 
-  // Генерируем последваотельность станиц
+  // Генерируем последовательность страниц
   for (let page = start; page <= end; page++) items.push(page)
 
-  // Последнаяя страница
-  if (end < length){
+  // Последняя страница
+  if (end < length) {
     if (end < length - 1) items.push(null); // пропуск
     items.push(length);
   }

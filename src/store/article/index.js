@@ -32,7 +32,8 @@ class ArticleStore extends StoreModule {
         waiting: false
       });
 
-    } catch (e){
+    }
+    catch (e) {
       this.updateState({
         data: {},
         waiting: false

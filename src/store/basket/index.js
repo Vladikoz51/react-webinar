@@ -17,8 +17,8 @@ class BasketStore extends StoreModule {
    * Добавление товара в корзину по коду
    * @param id {*}
    */
-  async add(id){
-    // Ищем товар в корзие, чтобы увеличить его количество.
+  async add(id) {
+    // Ищем товар в корзине, чтобы увеличить его количество.
     let exists = false;
 
     const items = this.getState().items.map(item => {
@@ -38,15 +38,16 @@ class BasketStore extends StoreModule {
         // Поиск товара в каталоге, чтобы его в корзину добавить
         const item = json.result;
         items.push({...item, amount: 1});
-      } catch (e){
-        console.error('товар не найден')
+      }
+      catch (e) {
+        console.error('товар не найден');
       }
     }
 
     // Считаем суммы
     let amount = 0;
     let sum = 0;
-    for (const item of items){
+    for (const item of items) {
       amount += item.amount;
       sum += item.price * item.amount;
     }

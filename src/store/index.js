@@ -18,7 +18,7 @@ class Store {
     for (const name of names) {
       // Экземпляр модуля
       this.modules[name] = new modules[name](this, name);
-      // Состояние по умочланию от модуля
+      // Состояние по умолчанию от модуля
       this.state[name] = this.modules[name].initState();
     }
   }
@@ -84,6 +84,13 @@ class Store {
    */
   get catalog(){
     return this.get('catalog');
+  }
+
+  /**
+   * @return {CategoriesStore}
+   */
+  get categories() {
+    return this.get('categories');
   }
 }
 

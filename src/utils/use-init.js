@@ -3,7 +3,7 @@ import shallowequal from "shallowequal";
 
 /**
  * Хук для асинхронных расчётов, которые будут исполнены при первом рендере или изменении inputs.
- * Так же позволяет отреагирваот на перехода по истории
+ * Так же позволяет отреагировать на переход по истории
  * @param callback {Function} Пользовательская функция
  * @param inputs {Array} Значения при смене которых callback снова исполнится.
  * @param options {{backForward}}
@@ -11,7 +11,7 @@ import shallowequal from "shallowequal";
 export default function useInit(callback, inputs = [], options = {backForward: false}) {
 
   const last = useRef(null);
-  if (!last.current || !equal(last.current, inputs)){
+  if (!last.current || !equal(last.current, inputs)) {
     last.current = inputs;
     callback();
   }
