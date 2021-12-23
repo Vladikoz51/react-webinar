@@ -87,11 +87,27 @@ class Store {
   }
 
   /**
+   * @return {ArticleStore}
+   */
+  get article(){
+    return this.get('article');
+  }
+
+  /**
+   * @return {ArticleEditStore}
+   */
+  get articleEdit() {
+    return this.get('articleEdit');
+  }
+
+  /**
    * @return {CategoriesStore}
    */
   get categories() {
     return this.get('categories');
   }
+
+
 }
 
 export default Store;

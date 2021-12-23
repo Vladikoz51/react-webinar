@@ -1,6 +1,6 @@
 import StoreModule from "../module";
 
-class CategoriesStore extends StoreModule {
+class CountriesStore extends StoreModule {
 
   /**
    * Начальное состояние
@@ -12,11 +12,11 @@ class CategoriesStore extends StoreModule {
   }
 
   /**
-   * Загрузка списка категорий товаров
+   * Загрузка списка стран-производителей товаров
    */
-  async setCategories() {
+  async setCountries() {
     try {
-      const response = await fetch('/api/v1/categories?limit=*&fields=_id,parent,title');
+      const response = await fetch('/api/v1/countries?limit=*&fields=_id,title,code&sort=title.ru');
       const json = await response.json();
       if (json.error) throw new Error(json.error);
 
@@ -32,4 +32,4 @@ class CategoriesStore extends StoreModule {
   }
 }
 
-export default CategoriesStore;
+export default CountriesStore;

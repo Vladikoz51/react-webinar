@@ -34,9 +34,30 @@ function CatalogFilter() {
     onReset: useCallback(() => store.catalog.resetParams(), [store]),
   }
 
+  function parseCategories(items) {
+    let sortedCategories = [{value: '', title: 'Все'}];
+
+    function getCategory(parent = null, nestDegree = 0) {
+      for (const item of items) {
+        const newItem = {...item};
+        if (parent === null && newItem.parent === parent) {
+          sortedCategories.push({value: newItem._id, title: newItem.title});
+          getCategory(newItem._id, nestDegree + 1);
+        }
+        else if (newItem.parent !== null && newItem.parent._id === parent) {
+          newItem.title = '- '.repeat(nestDegree) + newItem.title;
+          sortedCategories.push({value: newItem._id, title: newItem.title});
+          getCategory(newItem._id, nestDegree + 1);
+        }
+      }
+    }
+    getCategory();
+    return sortedCategories;
+  }
+
   return (
     <LayoutTools>
-      <Select onChange={callbacks.onCategory} value={select.category} options={select.categories}/>
+      <Select onChange={callbacks.onCategory} value={select.category} options={parseCategories(select.categories)}/>
       <Input onChange={callbacks.onSearch} value={select.query} placeholder={'Поиск'} theme="big"/>
       <label>Сортировка:</label>
       <Select onChange={callbacks.onSort} value={select.sort} options={options.sort}/>

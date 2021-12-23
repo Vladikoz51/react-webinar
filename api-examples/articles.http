@@ -27,18 +27,18 @@ GET http://example.front.ylab.io/api/v1/articles/61c0a9cb8f67e811d55abb40?fields
 ###
 # Сохранение товара
 
-PUT http://example.front.ylab.io/api/v1/articles/61c0a9cb8f67e811d55abb40
+PUT http://example.front.ylab.io/api/v1/articles/61c0a9cb8f67e811d55abb3a
 Content-Type: application/json
 
 {
-  "_id": "61c0a9cb8f67e811d55abb40",
-  "title": "Товар #11",
-  "description": "Описание товара из множества букв",
-  "price": 3970.52,
+  "_id": "61c0a9cb8f67e811d55abb3a",
+  "title": "Палка колбасы",
+  "description": "Колбаса вареная, ароматная",
+  "price": 666,
   "maidIn": {
     "_id": "61c0a9b58f67e811d55ab056"
   },
-  "edition": 2011,
+  "edition": 2021,
   "category": {
     "_id": "61c0a9cb8f67e811d55abb32"
   }
