@@ -53,7 +53,7 @@ function ArticleEdit() {
     }
 
     try {
-      const response = await fetch(`/api/v1/articles/${id}222`, {
+      const response = await fetch(`/api/v1/articles/${id}`, {
         method: 'PUT', // *GET, POST, PUT, DELETE, etc.
         mode: 'cors', // no-cors, *cors, same-origin
         cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
