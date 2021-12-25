@@ -1,6 +1,5 @@
 import React from 'react';
 import propTypes from 'prop-types';
-import {cn} from '@bem-react/classname'
 import './styles.css';
 import LayoutForm from "../layout-form";
 import Input from "../input";
@@ -16,18 +15,18 @@ function ArticleForm({formData, categories, countries, id, callbacks, error}) {
       id={id}
       error={error}
     >
-      <Input onChange={e => callbacks.setFormTitle(e)} value={formData.title} theme="big"/>
-      <Textarea onChange={e => callbacks.setFormDescription(e)} value={formData.description} placeholder={'Введите описание товара'}/>
-      <Select onChange={e => callbacks.setFormMaidIn(e)} value={formData.maidIn?._id} options={countries}/>
-      <Select onChange={e => callbacks.setFormCategory(e)} value={formData.category?._id} options={categories}/>
-      <Input onChange={e => callbacks.setFormEdition(e)}
+      <Input onChange={value => callbacks.setFormTitle(value)} value={formData.title} theme="big"/>
+      <Textarea onChange={value => callbacks.setFormDescription(value)} value={formData.description} placeholder={'Введите описание товара'}/>
+      <Select onChange={value => callbacks.setFormMaidIn(value)} value={formData.maidIn?._id} options={countries}/>
+      <Select onChange={value => callbacks.setFormCategory(value)} value={formData.category?._id} options={categories}/>
+      <Input onChange={value => callbacks.setFormEdition(value)}
              type={'number'}
              value={formData.edition}
              min={0}
              max={new Date().getFullYear()}
              theme={'medium'}
       />
-      <Input onChange={e => callbacks.setFormPrice(e)}
+      <Input onChange={value => callbacks.setFormPrice(value)}
              type={'number'}
              value={formData.price}
              min={0}
