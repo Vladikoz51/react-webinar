@@ -1,0 +1,5 @@
+.Textarea {
+  align-self: stretch;
+  min-height: 100px;
+  font: normal 16px/18px Arial, sans-serif;
+}

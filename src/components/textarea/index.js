@@ -24,53 +24,27 @@ function Input(props) {
   }, [props.value]);
 
   // CSS классы по БЭМ
-  const className = cn('Input');
+  const className = cn('Textarea');
 
-  if (props.type === 'number') {
-    return (
-      <input
-        className={className({theme: props.theme})}
-        value={value}
-        type={props.type}
-        placeholder={props.placeholder}
-        onChange={onChange}
-        min={props.min}
-        max={props.max}
-        step={props.step}
-      />
-    );
-  }
-  else {
-    return (
-      <input
-        className={className({theme: props.theme})}
-        value={value}
-        type={props.type}
-        placeholder={props.placeholder}
-        onChange={onChange}
-      />
-    );
-  }
-
-
+  return (
+    <textarea
+      className={className({theme: props.theme})}
+      value={value}
+      placeholder={props.placeholder}
+      onChange={onChange}
+    />
+  )
 }
 
 Input.propTypes = {
-  value: propTypes.oneOfType([propTypes.string, propTypes.number]),
-  type: propTypes.string,
+  value: propTypes.string,
   placeholder: propTypes.string,
   onChange: propTypes.func,
-  theme: propTypes.string,
-  min: propTypes.number,
-  max: propTypes.number,
-  step: propTypes.number
 }
 
 Input.defaultProps = {
   onChange: () => {},
-  type: 'text',
-  theme: '',
-  placeholder: '',
+  placeholder: ''
 }
 
 export default React.memo(Input);
